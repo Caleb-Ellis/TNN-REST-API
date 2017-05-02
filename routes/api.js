@@ -8,7 +8,12 @@ router.get('/drivers', function(req, res) {
 
 // Add a new driver to database
 router.post('/drivers', function(req, res) {
-  res.send({ type: 'POST' })
+  res.send({
+    type: 'POST',
+    name: req.body.name,
+    carMake: req.body.carMake,
+    carModel: req.body.carModel
+  })
 });
 
 // Update driver in database
