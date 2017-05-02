@@ -8,11 +8,11 @@ const DriverSchema = new Schema({
     required: [true, 'Name required']
   },
   carMake: {
-    type: String
+    type: String,
     required: [true, 'Car make and model required']
   },
   carModel: {
-    type: String
+    type: String,
     required: [true, 'Car make and model required']
   },
   available: {

@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const Driver = require('../models/driver.js');
 
 // Get a list of drivers from database
 router.get('/drivers', function(req, res) {
@@ -8,12 +9,9 @@ router.get('/drivers', function(req, res) {
 
 // Add a new driver to database
 router.post('/drivers', function(req, res) {
-  res.send({
-    type: 'POST',
-    name: req.body.name,
-    carMake: req.body.carMake,
-    carModel: req.body.carModel
-  })
+  Driver.create(req.body).then(function(driver) {
+    res.send(driver);
+  });
 });
 
 // Update driver in database
