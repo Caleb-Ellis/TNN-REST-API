@@ -20,3 +20,5 @@ router.put('/drivers/:id', function(req, res) {
 router.delete('/drivers/:id', function(req, res) {
   res.send({ type: 'DELETE' })
 });
+
+module.exports = router;
