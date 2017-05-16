@@ -1,7 +1,7 @@
 body{
     font-family: Raleway;
     color: #555;
-    background: #ff5252;
+    background: #1f62a2;
     margin: 10px 30px;
 }
 #homepage{
@@ -63,6 +63,11 @@ li{
 span{
     display: inline-block;
     margin: 0 20px;
+    width: 10%;
+    text-overflow: ellipsis
+}
+span.name {
+  width: 15%;
 }
 span.dist{
     color: green;

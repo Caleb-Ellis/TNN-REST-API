@@ -7,9 +7,9 @@
     <link href="/styles.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <h1 class="title">Driver Lookup - a Driver REST API</h1>
+    <h1 class="title">Driver Lookup REST API</h1>
     <div id="homepage">
-      <h1>Hire a driver in your area!</h1>
+      <h1>Find a driver near you!</h1>
       <div id="drivers">
 
       </div>
@@ -45,9 +45,11 @@
           <div id="driver-container">
             <form id="search" onSubmit={this.handleSubmit}>
               <label>Enter your latitude:</label>
-              <input type="text" ref="lat" placeholder="Latitiude" required />
+              <input type="text" ref="lat" placeholder="Latitude" required />
               <label>Enter your longitude:</label>
               <input type="text" ref="lng" placeholder="Longitude" required />
+              <label>Maximum distance (km):</label>
+              <input type="text" ref="maxDist" placeholder="Max distance" required />
               <input type="submit" value="Find Drivers" />
             </form>
             <ul>{drivers}</ul>
@@ -58,8 +60,9 @@
         e.preventDefault();
         var lng = this.refs.lng.value;
         var lat = this.refs.lat.value;
+        var maxDist = this.refs.maxDist.value;
 
-        fetch('/api/drivers?lng='+ lng +'&lat='+ lat).then(function(data) {
+        fetch('/api/drivers?lng='+ lng +'&lat='+ lat +'&maxDist=' + maxDist).then(function(data) {
           return data.json();
         }).then( json => {
           this.setState({
